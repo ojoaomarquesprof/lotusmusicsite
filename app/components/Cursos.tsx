@@ -2,13 +2,12 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaMicrophoneAlt, FaCheck, FaSignal } from "react-icons/fa";
+import { FaMicrophoneAlt, FaCheck, FaSignal, FaChevronDown } from "react-icons/fa";
 import { 
   GiGrandPiano, GiMusicalKeyboard, GiGuitar, GiAccordion, 
   GiViolin, GiDrumKit, GiDrum 
 } from "react-icons/gi";
 
-// Lista de cursos enriquecida com informações completas
 const cursosLista = [
   { 
     nome: "Canto", 
@@ -96,91 +95,112 @@ const cursosLista = [
   },
 ];
 
-export default function CursosMenuLuxo() {
-  // Estado que guarda qual curso está sendo visualizado no momento
-  const [activeCurso, setActiveCurso] = useState(cursosLista[0]);
+export default function CursosAccordion() {
+  // Estado para controlar qual curso está aberto (inicia com o primeiro aberto)
+  const [cursoAberto, setCursoAberto] = useState<string | null>(cursosLista[0].nome);
+
+  const toggleCurso = (nome: string) => {
+    // Se clicar no que já está aberto, ele fecha. Se clicar em outro, ele abre o novo.
+    setCursoAberto(cursoAberto === nome ? null : nome);
+  };
 
   return (
-    <section className="min-h-screen bg-[#080808] relative px-4 py-12 md:py-24">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-12 relative">
+    <section id="cursos" className="min-h-screen bg-[#080808] relative px-4 py-24 md:py-32">
+      <div className="max-w-4xl mx-auto">
         
-        {/* LADO ESQUERDO: Lista de Cursos (Menu Vertical) */}
-        <div className="w-full lg:w-1/2 flex flex-col gap-2 py-12">
-          <h2 className="text-xl text-lotus-gold tracking-widest uppercase mb-8 font-semibold">
-            Nossos Cursos
+        <div className="text-center mb-16">
+          <h2 className="text-lotus-gold uppercase tracking-[0.3em] text-sm font-bold mb-4">
+            Jornada Musical
           </h2>
-          
-          <div className="flex flex-col gap-4">
-            {cursosLista.map((curso) => (
-              <button
-                key={curso.nome}
-                onMouseEnter={() => setActiveCurso(curso)}
-                onClick={() => setActiveCurso(curso)}
-                className={`text-left text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter transition-all duration-300 border-b border-white/5 pb-4 ${
-                  activeCurso.nome === curso.nome 
-                    ? "text-white translate-x-4" 
-                    : "text-white/20 hover:text-white/60" 
-                }`}
-              >
-                {curso.nome}
-              </button>
-            ))}
-          </div>
+          <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tighter">
+            Nossos Cursos
+          </h3>
         </div>
 
-        {/* LADO DIREITO: O "Palco" Centralizado Verticalmente */}
-        <div className="w-full lg:w-1/2 relative">
-          
-          {/* A mágica do alinhamento: h-screen (altura da tela), top-0 (gruda no topo) e flex items-center (centraliza o card no meio do espaço) */}
-          <div className="sticky top-0 h-screen flex items-center justify-center">
-            
-            {/* O Card em si */}
-            <div className="w-full bg-[#111] border border-white/5 rounded-3xl p-8 md:p-12 min-h-125 flex flex-col justify-center shadow-2xl">
-              
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeCurso.nome}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
-                  className="flex flex-col h-full"
+        {/* Lista estilo Accordion (Sanfona) */}
+        <div className="flex flex-col gap-4">
+          {cursosLista.map((curso) => {
+            const isOpen = cursoAberto === curso.nome;
+            const Icon = curso.icone;
+
+            return (
+              <div 
+                key={curso.nome} 
+                className={`border rounded-2xl overflow-hidden transition-colors duration-300 ${
+                  isOpen ? "bg-[#111] border-lotus-gold/30 shadow-lg" : "bg-white/5 border-white/5 hover:border-white/10"
+                }`}
+              >
+                {/* Cabeçalho Clicável */}
+                <button
+                  onClick={() => toggleCurso(curso.nome)}
+                  className="w-full flex items-center justify-between p-6 md:p-8 cursor-pointer focus:outline-none"
                 >
-                  {/* Ícone Gigante Dourado */}
-                  <activeCurso.icone className="text-7xl md:text-8xl text-lotus-gold mb-8 drop-shadow-[0_0_20px_rgba(212,175,55,0.4)]" />
+                  <div className="flex items-center gap-6">
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-300 ${
+                      isOpen ? "bg-lotus-gold text-[#080808]" : "bg-white/5 text-lotus-gold"
+                    }`}>
+                      <Icon className="text-2xl" />
+                    </div>
+                    <h4 className={`text-2xl md:text-3xl font-bold tracking-tight transition-colors duration-300 ${
+                      isOpen ? "text-white" : "text-gray-400"
+                    }`}>
+                      {curso.nome}
+                    </h4>
+                  </div>
                   
-                  {/* Nome do Curso e Nível */}
-                  <h3 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                    {activeCurso.nome}
-                  </h3>
-                  <div className="flex items-center gap-2 text-lotus-gold mb-6 bg-lotus-gold/10 w-fit px-4 py-1.5 rounded-full border border-lotus-gold/20">
-                    <FaSignal className="text-sm" />
-                    <span className="text-sm font-medium tracking-wide">{activeCurso.niveis}</span>
-                  </div>
+                  <motion.div
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className={`text-xl ${isOpen ? "text-lotus-gold" : "text-gray-500"}`}
+                  >
+                    <FaChevronDown />
+                  </motion.div>
+                </button>
 
-                  {/* Descrição Persuasiva */}
-                  <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-10 border-l-2 border-lotus-gold pl-4">
-                    {activeCurso.descricao}
-                  </p>
+                {/* Conteúdo Expansível com Framer Motion */}
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
+                      <div className="px-6 pb-8 md:px-8 md:pb-10 pt-2 border-t border-white/5 flex flex-col md:flex-row gap-8">
+                        
+                        {/* Lado Esquerdo do Card Aberto: Descrição */}
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 text-lotus-gold mb-4 bg-lotus-gold/10 w-fit px-3 py-1 rounded-full border border-lotus-gold/20">
+                            <FaSignal className="text-xs" />
+                            <span className="text-xs font-semibold tracking-wide uppercase">{curso.niveis}</span>
+                          </div>
+                          <p className="text-gray-300 text-lg leading-relaxed">
+                            {curso.descricao}
+                          </p>
+                        </div>
 
-                  {/* Lista de Diferenciais */}
-                  <div className="mt-auto">
-                    <h4 className="text-sm text-gray-500 uppercase tracking-widest mb-4 font-semibold">Foco das Aulas</h4>
-                    <ul className="space-y-3">
-                      {activeCurso.diferenciais.map((dif, idx) => (
-                        <li key={idx} className="flex items-center gap-3 text-gray-200">
-                          <FaCheck className="text-lotus-gold text-sm shrink-0" />
-                          <span className="text-lg">{dif}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                        {/* Lado Direito do Card Aberto: Diferenciais */}
+                        <div className="flex-1 md:border-l md:border-white/10 md:pl-8">
+                          <h5 className="text-sm text-gray-500 uppercase tracking-widest mb-4 font-semibold">
+                            Foco das Aulas
+                          </h5>
+                          <ul className="space-y-3">
+                            {curso.diferenciais.map((dif, idx) => (
+                              <li key={idx} className="flex items-center gap-3 text-gray-200">
+                                <FaCheck className="text-lotus-gold text-sm shrink-0" />
+                                <span>{dif}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
 
-                </motion.div>
-              </AnimatePresence>
-              
-            </div>
-          </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
         </div>
 
       </div>

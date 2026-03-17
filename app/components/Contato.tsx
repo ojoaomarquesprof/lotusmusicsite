@@ -21,7 +21,7 @@ export default function Contato() {
   };
 
   return (
-    <section className="py-24 md:py-32 px-4 relative bg-[#080808] border-t border-white/5 overflow-hidden">
+    <section id="contato" className="py-24 md:py-32 px-4 relative bg-[#080808] border-t border-white/5 overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20">
         
         {/* Lado Esquerdo: Formulário Minimalista */}

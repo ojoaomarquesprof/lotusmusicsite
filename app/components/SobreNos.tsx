@@ -17,7 +17,7 @@ export default function SobreNos() {
   const yImg = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
   return (
-    <section ref={containerRef} className="relative bg-[#080808] py-32 px-4 border-t border-white/5 overflow-hidden">
+    <section id="sobre" ref={containerRef} className="relative bg-[#080808] py-32 px-4 border-t border-white/5 overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
 
         {/* LADO ESQUERDO: Imagem com Parallax e Filtro Editorial */}

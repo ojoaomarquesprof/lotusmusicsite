@@ -26,7 +26,7 @@ const diferenciais = [
 
 export default function ComoFunciona() {
   return (
-    <section className="py-24 md:py-32 px-4 relative bg-[#080808]">
+    <section id="metodologia" className="py-24 md:py-32 px-4 relative bg-[#080808]">
       <div className="max-w-7xl mx-auto">
         
         {/* Cabeçalho da Sessão */}
