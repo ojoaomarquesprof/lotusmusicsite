@@ -41,7 +41,7 @@ export default function ComoFunciona() {
               A Experiência
             </h2>
             <h3 className="text-4xl md:text-6xl font-black text-white tracking-tighter">
-              Estrutura de <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Alto Nível.</span>
+              Métodos de <span className="text-transparent bg-clip-text bg-linear-to-r from-white to-gray-500">Alto Nível.</span>
             </h3>
           </motion.div>
           <motion.p 
@@ -61,12 +61,12 @@ export default function ComoFunciona() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative w-full aspect-video rounded-[2rem] overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-white/10 mb-20 group cursor-pointer bg-[#111] flex items-center justify-center"
+          className="relative w-full aspect-video rounded-4xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-white/10 mb-20 group cursor-pointer bg-[#111] flex items-center justify-center"
         >
           {/* Imagem de Fundo Temporária (Thumbnail do Vídeo) */}
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-40 group-hover:opacity-30 transition-opacity duration-700 mix-blend-luminosity"></div>
           
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent"></div>
 
           {/* Botão Play Cinematográfico */}
           <div className="relative z-20 w-24 h-24 bg-lotus-gold/10 backdrop-blur-md border border-lotus-gold/50 rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-lotus-gold transition-all duration-500">
@@ -88,7 +88,7 @@ export default function ComoFunciona() {
               transition={{ delay: index * 0.15, duration: 0.6 }}
               className={`p-10 rounded-3xl border transition-all duration-500 flex flex-col h-full ${
                 item.destaque 
-                  ? "bg-gradient-to-br from-[#1a1a1a] to-[#080808] border-lotus-gold/30 shadow-[0_0_30px_rgba(212,175,55,0.1)] hover:border-lotus-gold" 
+                  ? "bg-linear-to-br from-[#1a1a1a] to-[#080808] border-lotus-gold/30 shadow-[0_0_30px_rgba(212,175,55,0.1)] hover:border-lotus-gold" 
                   : "bg-white/5 border-white/5 backdrop-blur-sm hover:bg-white/10"
               }`}
             >
@@ -98,7 +98,7 @@ export default function ComoFunciona() {
                 <item.icone className="text-3xl" />
               </div>
               <h4 className="text-2xl font-bold text-white mb-4 tracking-tight">{item.titulo}</h4>
-              <p className="text-gray-400 leading-relaxed text-lg flex-grow">
+              <p className="text-gray-400 leading-relaxed text-lg grow">
                 {item.descricao}
               </p>
             </motion.div>

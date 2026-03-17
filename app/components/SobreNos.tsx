@@ -21,7 +21,7 @@ export default function SobreNos() {
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
 
         {/* LADO ESQUERDO: Imagem com Parallax e Filtro Editorial */}
-        <div className="w-full lg:w-1/2 relative h-[500px] md:h-[700px] rounded-3xl overflow-hidden group">
+        <div className="w-full lg:w-1/2 relative h-125 md:h-175 rounded-3xl overflow-hidden group">
           
           {/* O contêiner da imagem é maior que o espaço para permitir o parallax sem cortar as bordas */}
           <motion.div style={{ y: yImg }} className="absolute inset-[-15%] w-[130%] h-[130%]">
@@ -32,8 +32,8 @@ export default function SobreNos() {
               className="object-cover object-center grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-in-out"
             />
             {/* Sombras nas bordas para misturar a foto com o fundo do site perfeitamente */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-[#080808] opacity-80" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#080808] via-transparent to-[#080808] opacity-80" />
+            <div className="absolute inset-0 bg-linear-to-t from-[#080808] via-transparent to-[#080808] opacity-80" />
+            <div className="absolute inset-0 bg-linear-to-r from-[#080808] via-transparent to-[#080808] opacity-80" />
           </motion.div>
 
           {/* Distintivo Flutuante estilo Editorial */}
@@ -56,7 +56,7 @@ export default function SobreNos() {
             </h2>
             <h3 className="text-5xl md:text-6xl font-black text-white mb-8 tracking-tighter leading-[1.1]">
               Muito prazer, <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-lotus-gold to-yellow-600">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-lotus-gold to-yellow-600">
                 João Marques.
               </span>
             </h3>
@@ -80,8 +80,8 @@ export default function SobreNos() {
                 <p className="text-gray-400 text-sm uppercase tracking-wider">Cursos Ministrados</p>
               </div>
               <div>
-                <h4 className="text-white font-bold text-3xl mb-2">Saúde Vocal</h4>
-                <p className="text-gray-400 text-sm uppercase tracking-wider">Técnica & Fisiologia</p>
+                <h4 className="text-white font-bold text-3xl mb-2">+ 10 anos</h4>
+                <p className="text-gray-400 text-sm uppercase tracking-wider">Ensinando Música</p>
               </div>
             </div>
           </motion.div>
