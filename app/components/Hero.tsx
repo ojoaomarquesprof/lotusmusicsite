@@ -46,7 +46,7 @@ export default function Hero() {
         >
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter leading-[1.1] mb-6">
             A sua jornada musical <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-lotus-gold via-yellow-600 to-lotus-gold">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-lotus-gold via-yellow-600 to-lotus-gold">
               começa aqui.
             </span>
           </h1>
@@ -93,7 +93,7 @@ export default function Hero() {
       </div>
 
       {/* Gradiente na base para fundir suavemente com a próxima sessão (Cursos) */}
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#080808] to-transparent z-10" />
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-linear-to-t from-[#080808] to-transparent z-10" />
 
     </section>
   );

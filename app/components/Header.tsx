@@ -54,7 +54,7 @@ export default function Header() {
 
           {/* Centro: Logo (Aumentamos o width para 220 e height para 70) */}
           <div 
-            className="flex-shrink-0 cursor-pointer transition-transform duration-300 hover:scale-105"
+            className="shrink-0 cursor-pointer transition-transform duration-300 hover:scale-105"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             <Image 
@@ -84,7 +84,7 @@ export default function Header() {
         <nav className="md:hidden flex items-center justify-between">
           {/* Logo Mobile (Aumentamos o width para 150 e height para 50) */}
           <div 
-            className="flex-shrink-0 cursor-pointer"
+            className="shrink-0 cursor-pointer"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             <Image 

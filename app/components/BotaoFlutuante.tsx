@@ -18,7 +18,7 @@ export default function BotaoFlutuante() {
       transition={{ type: "spring", stiffness: 260, damping: 20, delay: 1 }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
-      className="fixed bottom-8 right-8 z-[100] bg-[#25D366] text-white p-4 rounded-full shadow-[0_4px_20px_rgba(37,211,102,0.4)] cursor-pointer flex items-center justify-center group"
+      className="fixed bottom-8 right-8 z-100 bg-[#25D366] text-white p-4 rounded-full shadow-[0_4px_20px_rgba(37,211,102,0.4)] cursor-pointer flex items-center justify-center group"
     >
       <div className="absolute inset-0 bg-[#25D366] rounded-full animate-ping opacity-60"></div>
       <FaWhatsapp className="text-4xl relative z-10" />
