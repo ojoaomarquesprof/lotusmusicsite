@@ -1,6 +1,6 @@
 // src/components/Cursos.tsx
 "use client";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { FaMicrophoneAlt, FaCheck, FaSignal } from "react-icons/fa";
 import { 
   GiGrandPiano, GiMusicalKeyboard, GiGuitar, GiAccordion, 
@@ -94,7 +94,7 @@ const cursosLista = [
   },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -157,7 +157,7 @@ export default function CursosCards() {
                 </div>
 
                 {/* Descrição */}
-                <p className="text-gray-400 text-sm leading-relaxed mb-8 flex-grow">
+                <p className="text-gray-400 text-sm leading-relaxed mb-8 grow">
                   {curso.descricao}
                 </p>
 
