@@ -60,7 +60,7 @@ export default function Hero() {
           className="text-gray-300 text-lg md:text-xl font-light max-w-2xl mb-12"
         >
           Mais do que notas musicais, ensinamos técnica, saúde e expressão. 
-          Junte-se à escola de música com a estrutura mais moderna da região.
+          Descubra o poder transformador da música com a metodologia exclusiva da Lótus Music.
         </motion.p>
 
         {/* Botões de Ação */}
