@@ -64,7 +64,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-4 items-center md:items-start">
               <li className="flex items-start gap-3 text-gray-400 text-sm">
                 <FaWhatsapp className="text-lotus-gold mt-1 shrink-0" />
-                <span>(43) 99999-9999</span>
+                <span>(43) 99602-7177</span>
               </li>
               <li className="flex items-start gap-3 text-gray-400 text-sm">
                 <FaEnvelope className="text-lotus-gold mt-1 shrink-0" />

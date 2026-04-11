@@ -12,12 +12,12 @@ export default function Contato() {
     e.preventDefault();
     
     // ATENÇÃO: Troque este número pelo WhatsApp real da Lótus Music (com DDD, sem espaços)
-    const numeroWhatsApp = "5543999999999"; 
+    const numeroWhatsApp = "5543996027177"; 
     
     const textoBase = `Olá! Me chamo ${nome} e estava navegando no site da Lótus. Gostaria de saber mais sobre as aulas de ${interesse || "música"}!`;
     const textoCodificado = encodeURIComponent(textoBase);
     
-    window.open(`https://wa.me/${numeroWhatsApp}?text=${textoCodificado}`, "_blank");
+    window.open(`https://wa.me/${5543996027177}?text=${textoCodificado}`, "_blank");
   };
 
   return (

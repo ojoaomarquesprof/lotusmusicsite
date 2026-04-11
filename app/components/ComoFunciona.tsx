@@ -1,5 +1,6 @@
 // src/components/ComoFunciona.tsx
 "use client";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaPlay, FaCalendarCheck, FaMobileAlt, FaFileAudio } from "react-icons/fa";
 
@@ -8,7 +9,7 @@ const diferenciais = [
     titulo: "App Exclusivo do Aluno",
     descricao: "A Lótus na palma da mão. Reagende suas aulas com um clique, acompanhe seu histórico e gerencie pagamentos direto pelo celular, sem burocracia.",
     icone: FaMobileAlt,
-    destaque: true, // Vamos fazer esse card brilhar mais
+    destaque: true, 
   },
   {
     titulo: "Material Digital na Nuvem",
@@ -25,6 +26,9 @@ const diferenciais = [
 ];
 
 export default function ComoFunciona() {
+  // Controle de estado para saber se o vídeo foi clicado
+  const [isPlaying, setIsPlaying] = useState(false);
+
   return (
     <section id="metodologia" className="py-24 md:py-32 px-4 relative bg-[#080808]">
       <div className="max-w-7xl mx-auto">
@@ -61,20 +65,20 @@ export default function ComoFunciona() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative w-full aspect-video rounded-4xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-white/10 mb-20 group cursor-pointer bg-[#111] flex items-center justify-center"
+          className="relative w-full aspect-video rounded-4xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-white/10 mb-20 group bg-[#111]"
         >
-          {/* Imagem de Fundo Temporária (Thumbnail do Vídeo) */}
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-40 group-hover:opacity-30 transition-opacity duration-700 mix-blend-luminosity"></div>
+          {/* IFRAME DO PANDA VIDEO OFICIAL */}
+          {/* Note que tiramos o autoplay, para o usuário dar o play direto na capa do Panda */}
+          <iframe 
+            id="panda-player" 
+            src="https://player-vz-5d02c4b3-799.tv.pandavideo.com/embed/?v=c8db52d4-7754-47e9-b4c5-91656b3f8c1a&saveProgress=false" 
+            style={{ border: 'none', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }} 
+            allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" 
+            allowFullScreen 
+          />
           
-          <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent"></div>
-
-          {/* Botão Play Cinematográfico */}
-          <div className="relative z-20 w-24 h-24 bg-lotus-gold/10 backdrop-blur-md border border-lotus-gold/50 rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-lotus-gold transition-all duration-500">
-            <FaPlay className="text-lotus-gold text-3xl ml-2 group-hover:text-[#080808] transition-colors duration-500" />
-            
-            {/* Efeito de anel pulsante */}
-            <div className="absolute inset-0 border border-lotus-gold rounded-full animate-ping opacity-20"></div>
-          </div>
+          {/* Efeito visual na borda (opcional) */}
+          <div className="absolute inset-0 pointer-events-none border border-transparent group-hover:border-lotus-gold/30 transition-colors duration-500 rounded-4xl z-10"></div>
         </motion.div>
 
         {/* Grid de Diferenciais (Bento Style) */}

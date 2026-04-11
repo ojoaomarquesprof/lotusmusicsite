@@ -5,12 +5,12 @@ import { FaWhatsapp } from "react-icons/fa";
 
 export default function BotaoFlutuante() {
   // ATENÇÃO: Troque pelo seu número
-  const numeroWhatsApp = "5543999999999"; 
+  const numeroWhatsApp = "5543996027177"; 
   const mensagemPadrao = encodeURIComponent("Olá! Estou no site da Lótus Music e gostaria de mais informações.");
 
   return (
     <motion.a
-      href={`https://wa.me/${numeroWhatsApp}?text=${mensagemPadrao}`}
+      href={`https://wa.me/${5543996027177}?text=${mensagemPadrao}`}
       target="_blank"
       rel="noopener noreferrer"
       initial={{ scale: 0 }}
