@@ -1,6 +1,6 @@
 // src/components/Cursos.tsx
 "use client";
-import { motion, Variants } from "framer-motion";
+import { motion, Variants } from "framer-motion"; // <-- Adicionado o Variants aqui
 import { FaMicrophoneAlt, FaCheck, FaSignal } from "react-icons/fa";
 import { 
   GiGrandPiano, GiMusicalKeyboard, GiGuitar, GiAccordion, 
@@ -94,6 +94,7 @@ const cursosLista = [
   },
 ];
 
+// <-- Adicionado : Variants aqui
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
@@ -102,7 +103,8 @@ const containerVariants: Variants = {
   }
 };
 
-const cardVariants = {
+// <-- Adicionado : Variants aqui
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
 };
